@@ -1,0 +1,6 @@
+packages:
+  - "apps/beauty"
+  - "apps/core/server"
+  - "apps/core/client"
+  - "apps/fit"
+  - "apps/clinic"

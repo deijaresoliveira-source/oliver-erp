@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@700&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root,
+.light {
+  --primary: #D4AF37;
+  --primary-foreground: #0F172A;
+  --sidebar-primary: #D4AF37;
+  --sidebar-primary-foreground: #0F172A;
+  --chart-1: #D4AF37;
+  --chart-2: #10B981;
+  --chart-3: #3B82F6;
+  --chart-4: #F59E0B;
+  --chart-5: #EF4444;
+  --radius: 0.75rem;
+
+  /* TEMA CLARO - área central */
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+  --secondary: #F1F5F9;
+  --secondary-foreground: #0F172A;
+  --muted: #E2E8F0;
+  --muted-foreground: #475569;
+  --accent: #10B981;
+  --accent-foreground: #0F172A;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #CBD5E1;
+  --input: #FFFFFF;
+  --ring: #D4AF37;
+
+  /* A barra lateral continua escura mesmo no tema claro */
+  --sidebar: #0F172A;
+  --sidebar-foreground: #F1F5F9;
+  --sidebar-accent: #1E293B;
+  --sidebar-accent-foreground: #D4AF37;
+  --sidebar-border: #334155;
+  --sidebar-ring: #D4AF37;
+}
+
+.dark {
+  --primary: #D4AF37;
+  --primary-foreground: #0F172A;
+  --sidebar-primary: #D4AF37;
+  --sidebar-primary-foreground: #0F172A;
+  --background: #0F172A;
+  --foreground: #F1F5F9;
+  --card: #1E293B;
+  --card-foreground: #F1F5F9;
+  --popover: #1E293B;
+  --popover-foreground: #F1F5F9;
+  --secondary: #1F2937;
+  --secondary-foreground: #E5E7EB;
+  --muted: #334155;
+  --muted-foreground: #CBD5E1;
+  --accent: #10B981;
+  --accent-foreground: #0F172A;
+  --destructive: #EF4444;
+  --destructive-foreground: #F1F5F9;
+  --border: #334155;
+  --input: #1E293B;
+  --ring: #D4AF37;
+  --chart-1: #D4AF37;
+  --chart-2: #10B981;
+  --chart-3: #3B82F6;
+  --chart-4: #F59E0B;
+  --chart-5: #EF4444;
+  --sidebar: #1E293B;
+  --sidebar-foreground: #F1F5F9;
+  --sidebar-accent: #334155;
+  --sidebar-accent-foreground: #D4AF37;
+  --sidebar-border: #334155;
+  --sidebar-ring: #D4AF37;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* Premium Animations */
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  /* Premium Card Effects */
+  .card-premium {
+    @apply bg-card border border-border rounded-xl p-6 transition-all duration-300;
+    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .card-premium:hover {
+    @apply shadow-xl;
+    border-color: rgba(212, 175, 55, 0.4);
+    transform: translateY(-4px);
+  }
+
+  .card-premium.glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  /* Gold Accent Border */
+  .border-gold {
+    @apply border-l-4;
+    border-left-color: #D4AF37;
+  }
+
+  /* Premium Button */
+  .btn-premium {
+    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+    background: linear-gradient(135deg, #D4AF37 0%, #C9A227 100%);
+    color: #0F172A;
+  }
+
+  .btn-premium:hover {
+    @apply shadow-lg;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+  }
+
+  .btn-premium:active {
+    transform: translateY(0);
+  }
+
+  /* Glass Morphism */
+  .glass {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(135deg, #D4AF37 0%, #10B981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Premium Badge */
+  .badge-premium {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+    background: rgba(212, 175, 55, 0.1);
+    color: #D4AF37;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+  }
+}
+
+/* Smooth transitions */
+button {
+  transition: all 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+input, textarea, select {
+  transition: all 200ms ease-out;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #D4AF37;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+
+/* =========================================================
+   Ajustes gerais para celular
+   Evita que o botão ☰ fique em cima dos cabeçalhos
+   e melhora a leitura em telas pequenas.
+   ========================================================= */
+@media (max-width: 767px) {
+  h1 {
+    font-size: 1.45rem !important;
+    line-height: 1.85rem !important;
+  }
+
+  h2 {
+    font-size: 1.2rem !important;
+    line-height: 1.6rem !important;
+  }
+
+  h3 {
+    font-size: 1rem !important;
+    line-height: 1.35rem !important;
+  }
+
+  .sticky.top-0 {
+    z-index: 20;
+  }
+
+  .sticky.top-0 > div,
+  .glass > div {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  .card-premium {
+    padding: 1rem !important;
+    border-radius: 1rem !important;
+  }
+
+  .card-premium:hover {
+    transform: none !important;
+  }
+
+  .btn-premium {
+    padding: 0.65rem 0.9rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font-size: 0.95rem;
+  }
+
+  .max-w-6xl,
+  .max-w-7xl {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   Tema claro/escuro do Oliver ERP
+   A barra lateral pode continuar escura; o conteúdo segue as variáveis.
+   ========================================================= */
+.light body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.light .card-premium {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+  color: #0F172A;
+  border-color: rgba(212, 175, 55, 0.28);
+}
+
+.light .glass {
+  background: rgba(255, 255, 255, 0.82);
+  color: #0F172A;
+  border-color: rgba(15, 23, 42, 0.10);
+}
+
+.light input,
+.light textarea,
+.light select {
+  background: #FFFFFF;
+  color: #0F172A;
+  border-color: #CBD5E1;
+}
+
+.light table {
+  color: #0F172A;
+}
+
+/* Mantém a identidade do menu lateral escura mesmo no tema claro */
+.light aside {
+  background: #070b12 !important;
+  color: #F8FAFC !important;
+}
+.light aside button,
+.light aside a,
+.light aside p,
+.light aside span {
+  color: inherit;
+}
+
+/* Topo mobile também permanece escuro */
+.light .fixed.left-0.right-0.top-0 {
+  background: rgba(7, 11, 18, 0.95) !important;
+  color: #F8FAFC !important;
+}

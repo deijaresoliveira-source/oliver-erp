@@ -1,0 +1,22 @@
+{
+  "name": "@oliver/fit",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc && vite build",
+    "lint": "echo lint fit"
+  },
+  "dependencies": {
+    "react": "latest",
+    "react-dom": "latest",
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "typescript": "latest"
+  }
+}

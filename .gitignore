@@ -1,0 +1,33 @@
+# Dependências
+node_modules/
+
+# Build
+dist/
+build/
+.next/
+.turbo/
+.cache/
+
+# Variáveis de ambiente
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Uploads e backups
+uploads/
+backups/
+
+# Banco local / dumps
+*.sqlite
+*.db
+*.dump
+
+# Sistema / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

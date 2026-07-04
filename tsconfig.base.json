@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@oliver/types": ["packages/types/src"],
+      "@oliver/utils": ["packages/utils/src"],
+      "@oliver/config": ["packages/config/src"],
+      "@oliver/api-client": ["packages/api-client/src"],
+      "@oliver/auth": ["packages/auth/src"],
+      "@oliver/database": ["packages/database/src"],
+      "@oliver/ui": ["packages/ui/src"]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "oliver-erp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "build": "pnpm --filter oliver-erp-beauty build",
+    "start": "pnpm --filter oliver-erp-beauty start",
+    "dev": "pnpm --filter oliver-erp-beauty dev",
+    "check": "pnpm --filter oliver-erp-beauty check"
+  }
+}
